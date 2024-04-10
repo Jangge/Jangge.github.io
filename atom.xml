@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-04-01T11:06:00.202Z</updated>
+  <updated>2024-04-10T11:29:54.633Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>梯度消失和梯度爆炸</title>
+    <link href="http://example.com/2024/04/10/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/"/>
+    <id>http://example.com/2024/04/10/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</id>
+    <published>2024-04-10T10:37:26.000Z</published>
+    <updated>2024-04-10T11:29:54.633Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1、什么是梯度消失和梯度爆炸？"><a href="#1、什么是梯度消失和梯度爆炸？" class="headerlink" title="1、什么是梯度消失和梯度爆炸？"></a>1、什么是梯度消失和梯度爆炸？</h2><ul><li>梯度消失：在每次更新时，参数更新过小几乎不会移动，导致模型无法学习。</li><li>梯度爆炸：参数更新过大，破坏了模型的稳定收敛。<span id="more"></span></li></ul><h2 id="2、为什么会出现梯度消失和梯度爆炸？"><a href="#2、为什么会出现梯度消失和梯度爆炸？" class="headerlink" title="2、为什么会出现梯度消失和梯度爆炸？"></a>2、为什么会出现梯度消失和梯度爆炸？</h2><p>&emsp;&emsp;根本原因是深层次的神经网络模型的权重在反向传播过程中梯度的传播特性。层层网络下，参数矩阵在反向传播中反复累积的相乘，容易受到数值下溢问题的影响，当将太多的概率乘在一起时，它们的乘积可能非常大，也可能非常小。<br><img src="/pic/gradient/1.png" width = "50%" height = "50%" /></p><ul><li>不合适的初始化参数会导致梯度的消失和爆炸。</li><li>长期依赖问题，RNN中序列过长，梯度可能会逐渐衰减，远距离依赖的信息无法传播从而导致梯度消失。</li><li>激活函数选择不合适，例如sigmoid是以前网络中导致梯度消失的一个常见原因。</li><li>网络复杂度过高，参数量过大，可能会导致梯度值非常大，需要特殊的技巧来处理深层多参数模型。</li></ul><h2 id="3、如何缓解梯度消失或梯度爆炸问题？"><a href="#3、如何缓解梯度消失或梯度爆炸问题？" class="headerlink" title="3、如何缓解梯度消失或梯度爆炸问题？"></a>3、如何缓解梯度消失或梯度爆炸问题？</h2><p>针对梯度消失：</p><ul><li>使用合适的参数初始化方法，如Xavier或者He初始化方法。</li><li>使用合适的激活函数，如目前常用的ReLU系列等。</li><li>使用批量归一化。</li></ul><p>针对梯度爆炸：</p><ul><li>梯度裁剪，限制梯度的大小。</li><li>加入权重正则化，在损失函数中加入L1&#x2F;L2正则项，限制权重大小</li><li>合适的参数初始化方法，同上面。</li><li>使用更小的学习率。</li></ul><h2 id="4、题外：正则化"><a href="#4、题外：正则化" class="headerlink" title="4、题外：正则化"></a>4、题外：正则化</h2><p>正则化是为了防止模型过拟合，提高其泛化能力的方法。<br>有以下一些正则化方法：</p><ul><li>在损失函数中加入权重的L2正则惩罚项。</li><li>数据增强。</li><li>Dropout。</li><li>批量归一化。</li><li>权重衰减。</li><li>早停技术。</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;1、什么是梯度消失和梯度爆炸？&quot;&gt;&lt;a href=&quot;#1、什么是梯度消失和梯度爆炸？&quot; class=&quot;headerlink&quot; title=&quot;1、什么是梯度消失和梯度爆炸？&quot;&gt;&lt;/a&gt;1、什么是梯度消失和梯度爆炸？&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;梯度消失：在每次更新时，参数更新过小几乎不会移动，导致模型无法学习。&lt;/li&gt;
+&lt;li&gt;梯度爆炸：参数更新过大，破坏了模型的稳定收敛。</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>BatchNorm批量归一化的简单介绍</title>
